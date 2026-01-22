@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Personal Note from the Developer - Bible Key</title>
+    <meta name="description" content="A personal message from Ali Momen, the developer of Bible Key, about the heart and vision behind the app.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF5EE">
+
+    <style>
+        :root {
+            --gold-accent: #C29A54;
+            --gold-light: #EDDEBB;
+            --gold-dark: #A88542;
+            --cream: #FAF5EE;
+            --warm-white: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --text-primary: #332E2A;
+            --text-secondary: #736B66;
+            --text-tertiary: #9E9590;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 245, 238, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: var(--gold-accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header .subtitle {
+            color: var(--gold-accent);
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .content-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .content-card strong {
+            color: var(--text-primary);
+        }
+
+        .content-card ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        .content-card li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .content-card a {
+            color: var(--gold-accent);
+            text-decoration: none;
+        }
+
+        .content-card a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: var(--gold-light);
+            border-radius: var(--border-radius-lg);
+            padding: 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .feature-box {
+            background: var(--cream);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .feature-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-box ul {
+            margin-bottom: 0;
+        }
+
+        .scripture-quote {
+            border-left: 4px solid var(--gold-accent);
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+        }
+
+        .scripture-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .scripture-quote cite {
+            font-size: 14px;
+            color: var(--gold-accent);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .signature {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .signature p {
+            margin-bottom: 8px;
+        }
+
+        .signature .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .signature .title {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(194, 154, 84, 0.2);
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            background: var(--cream);
+            border-top: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo svg {
+            width: 28px;
+            height: 28px;
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .footer-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .page-content {
+                padding: 100px 16px 60px;
+            }
+
+            .content-card {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Bible Key</span>
+            </a>
+            <a href="index.html#download" class="nav-cta">Download App</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <h1>A Personal Note from the Developer</h1>
+            <p class="subtitle">Finding Christ in Your Own Way</p>
+        </div>
+
+        <div class="content-card">
+            <h2>Finding Christ in Your Own Way</h2>
+            <p>Everyone enters Christ in their own way, through their own path. There is no single road map, no universal formula—only the deeply personal journey that unfolds uniquely for each of us.</p>
+            <p>I found Christ first through meeting my wife, who shared with me the glory of Jesus. Through encounter after encounter, I discovered that Jesus was always there with me. Real truth doesn't come from the outside—it's been resonating within, just needing to find its song.</p>
+
+            <h2>The Heart Behind Bible Key</h2>
+            <p>As I built this app, I thought deeply about how to present scripture and how to guide the AI in responding to your questions. I've tried to keep the answers very much neutral, and when it comes to theological matters, to live in the New Testament and the teachings of Jesus.</p>
+            <p>But here's what's important: <strong>The answers may not be the answers you were looking for.</strong> They may even conflict with your path to Christ, and that is completely okay.</p>
+
+            <h2>Grace for Different Paths</h2>
+            <p>Let's give each other grace. If this app isn't for you, that's totally okay. I take no offense.</p>
+            <p>I made this app for myself—to learn the Bible, to grow closer to Jesus, to have a companion in my journey of faith. It was only as I made it for myself that I thought: maybe this could be good for others too.</p>
+
+            <div class="highlight-box">
+                <p>We begin with a shared truth: <strong>We are one, and Jesus is everything.</strong></p>
+            </div>
+
+            <p>From that foundation, our paths may diverge in beautiful and unexpected ways. Your relationship with Christ is yours alone. Your interpretation of scripture, your theological understanding, your spiritual practices—they belong to you and the Holy Spirit working within you.</p>
+
+            <div class="feature-box">
+                <h3>What Bible Key Offers</h3>
+                <p style="margin-bottom: 12px;">This app is a tool, nothing more and nothing less:</p>
+                <ul>
+                    <li><strong>The Word:</strong> The Berean Standard Bible, presented clearly and beautifully</li>
+                    <li><strong>A Voice:</strong> Professional narration to let scripture wash over you</li>
+                    <li><strong>A Companion:</strong> An AI assistant trained to reflect on scripture through the lens of Jesus' teachings</li>
+                    <li><strong>A Space:</strong> For your notes, your highlights, your personal journey with the text</li>
+                </ul>
+            </div>
+
+            <div class="feature-box">
+                <h3>What Bible Key Is Not</h3>
+                <p style="margin-bottom: 12px;">This app is not:</p>
+                <ul>
+                    <li>A replacement for the Holy Spirit's guidance</li>
+                    <li>A substitute for Christian community and fellowship</li>
+                    <li>The final word on theological matters</li>
+                    <li>A tool to convince you of one interpretation over another</li>
+                    <li>Perfect or complete</li>
+                </ul>
+            </div>
+
+            <h2>An Invitation</h2>
+            <p>If the way Bible Key approaches scripture resonates with you, I'm grateful to be part of your journey. Use it as a companion, a study tool, a quiet space to encounter God's word.</p>
+            <p>If it doesn't fit your path, I genuinely understand. The body of Christ is vast and diverse, and there are many beautiful resources out there for every kind of seeker.</p>
+
+            <h2>Technical Transparency</h2>
+            <p>The AI assistant has been guided to:</p>
+            <ul>
+                <li>Ground responses in the teachings of Jesus</li>
+                <li>Emphasize New Testament principles</li>
+                <li>Avoid denominational dogmatism</li>
+                <li>Encourage personal reflection and prayer</li>
+                <li>Point back to scripture as the ultimate authority</li>
+            </ul>
+            <p>But AI is not infallible. It cannot replace your pastor, your spiritual director, your prayer life, or the Holy Spirit's guidance.</p>
+
+            <h2>My Prayer for You</h2>
+            <p>My prayer is that this app helps you:</p>
+            <ul>
+                <li>Encounter God's word regularly</li>
+                <li>Discover Jesus in new and deeper ways</li>
+                <li>Find moments of peace and reflection</li>
+                <li>Grow in your understanding of scripture</li>
+                <li>Draw closer to the One who loves you infinitely</li>
+            </ul>
+
+            <h2>Contact and Community</h2>
+            <p>I'm always open to feedback, questions, and conversations. If something about this app troubles you, enlightens you, or sparks a question—reach out. I'm learning too.</p>
+            <p><strong>Email:</strong> <a href="mailto:thoughts@biblekey.app">thoughts@biblekey.app</a></p>
+
+            <h2>In Closing</h2>
+            <p>Thank you for considering Bible Key for your spiritual journey. Whether this app becomes a daily companion or just a brief stop along your path, I'm honored that you're here.</p>
+            <p>May you find Christ in your own way, in your own time, through your own beautiful and unique path.</p>
+
+            <div class="signature">
+                <p style="color: var(--text-tertiary); font-size: 14px;">Faithfully,</p>
+                <p class="name">Ali Momen</p>
+                <p class="title">Developer of Bible Key</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="scripture-quote">
+                <p>"For where two or three gather in My name, there am I with them."</p>
+                <cite>— Matthew 18:20</cite>
+            </div>
+
+            <p style="text-align: center; font-style: italic; color: var(--text-secondary);">We may study alone, but we are never alone. Christ is with us.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span>Bible Key</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="developer.html">From the Developer</a>
+                <a href="mailto:thoughts@biblekey.app">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Bible Key. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Bible Key</title>
+    <meta name="description" content="Bible Key Terms of Service - Read our terms and conditions for using the app.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF5EE">
+
+    <style>
+        :root {
+            --gold-accent: #C29A54;
+            --gold-light: #EDDEBB;
+            --gold-dark: #A88542;
+            --cream: #FAF5EE;
+            --warm-white: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --text-primary: #332E2A;
+            --text-secondary: #736B66;
+            --text-tertiary: #9E9590;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 245, 238, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: var(--gold-accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header .last-updated {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .content-card h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .content-card strong {
+            color: var(--text-primary);
+        }
+
+        .content-card ul, .content-card ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        .content-card li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .content-card a {
+            color: var(--gold-accent);
+            text-decoration: none;
+        }
+
+        .content-card a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: var(--gold-light);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(194, 154, 84, 0.2);
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            background: var(--cream);
+            border-top: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo svg {
+            width: 28px;
+            height: 28px;
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .footer-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .page-content {
+                padding: 100px 16px 60px;
+            }
+
+            .content-card {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Bible Key</span>
+            </a>
+            <a href="index.html#download" class="nav-cta">Download App</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <h1>Terms of Service</h1>
+            <p class="last-updated">Last Updated: January 19, 2026</p>
+        </div>
+
+        <div class="content-card">
+            <h2>Welcome to Bible Key</h2>
+            <p>By using Bible Key, you agree to these Terms of Service. Please read them carefully.</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Bible Key, you agree to be bound by these Terms of Service and our Privacy Policy.</p>
+
+            <h2>2. Description of Service</h2>
+            <p>Bible Key is a Bible reading and study application that provides:</p>
+            <ul>
+                <li>Access to the Berean Standard Bible (BSB) translation</li>
+                <li>Professional audio narration of scripture</li>
+                <li>AI-powered chat assistance using Anthropic's Claude AI</li>
+                <li>Personal study tools including bookmarks, notes, and highlights</li>
+            </ul>
+
+            <h2>3. Use of the Service</h2>
+
+            <h3>3.1 Eligibility</h3>
+            <p>You must be at least 13 years of age to use this service. If you are under 18, you must have permission from a parent or guardian.</p>
+
+            <h3>3.2 Account Registration</h3>
+            <ul>
+                <li>Sign in with Apple is used for authentication</li>
+                <li>You are responsible for maintaining the confidentiality of your account</li>
+                <li>You agree to provide accurate information during registration</li>
+            </ul>
+
+            <h3>3.3 Acceptable Use</h3>
+            <p>You agree to use Bible Key for lawful purposes only. You agree not to:</p>
+            <ul>
+                <li>Use the service in any way that violates applicable laws or regulations</li>
+                <li>Attempt to interfere with the proper functioning of the service</li>
+                <li>Use automated means to access the service without permission</li>
+                <li>Reproduce, distribute, or create derivative works from the Bible text or audio content beyond personal use</li>
+            </ul>
+
+            <h2>4. Third-Party Services</h2>
+            <p>Bible Key integrates the following third-party services:</p>
+
+            <h3>4.1 Anthropic's Claude AI</h3>
+            <ul>
+                <li>AI-powered chat responses are provided by Anthropic's Claude</li>
+                <li>Claude's responses are generated based on the teachings of Jesus and New Testament principles</li>
+                <li>AI responses are for informational and spiritual reflection purposes only</li>
+            </ul>
+
+            <h3>4.2 Berean Standard Bible (BSB)</h3>
+            <ul>
+                <li>Bible text is provided under the Berean Standard Bible license</li>
+                <li>The BSB is available for personal and ministry use</li>
+                <li>Copyright © 2016, 2020 by Bible Hub (biblehub.com)</li>
+            </ul>
+
+            <h3>4.3 Apple Services</h3>
+            <ul>
+                <li>Sign in with Apple for authentication</li>
+                <li>iCloud for optional data synchronization</li>
+                <li>In-App Purchases through Apple</li>
+            </ul>
+
+            <h2>5. Intellectual Property</h2>
+
+            <h3>5.1 App Content</h3>
+            <p>Bible Key application, including its design, features, and original content, is owned by Ali Momen and protected by copyright laws.</p>
+
+            <h3>5.2 Bible Content</h3>
+            <p>The Berean Standard Bible text and audio recordings are used under license and remain the property of their respective copyright holders.</p>
+
+            <h3>5.3 User Content</h3>
+            <p>You retain ownership of any notes, highlights, or other content you create within the app. By using the service, you grant us a limited license to store and display your content for the purpose of providing the service.</p>
+
+            <h2>6. Disclaimer of Warranties</h2>
+
+            <h3>6.1 Service Provided "As Is"</h3>
+            <p>Bible Key is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.</p>
+
+            <h3>6.2 Spiritual Guidance</h3>
+            <div class="highlight-box">
+                <p><strong>Important:</strong> AI responses are for reflection and study purposes only. They should not replace pastoral guidance, theological education, or personal Bible study. We make no claims about the theological accuracy or completeness of AI-generated responses. Users are encouraged to verify information through prayer, scripture study, and trusted spiritual advisors.</p>
+            </div>
+
+            <h3>6.3 Technical Accuracy</h3>
+            <p>We do not warrant that:</p>
+            <ul>
+                <li>The service will be uninterrupted or error-free</li>
+                <li>Defects will be corrected</li>
+                <li>The service is free from viruses or harmful components</li>
+            </ul>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law:</p>
+            <ul>
+                <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Our total liability shall not exceed the amount you paid for the service in the past 12 months</li>
+            </ul>
+
+            <h2>8. Subscriptions and Payments</h2>
+
+            <h3>8.1 In-App Purchases</h3>
+            <ul>
+                <li>Certain features may require a subscription or one-time purchase</li>
+                <li>All purchases are processed through Apple's App Store</li>
+                <li>Prices are subject to change with notice</li>
+            </ul>
+
+            <h3>8.2 Refunds</h3>
+            <ul>
+                <li>Refund requests are handled according to Apple's App Store policies</li>
+                <li>Contact Apple directly for refund inquiries</li>
+            </ul>
+
+            <h3>8.3 Cancellation</h3>
+            <ul>
+                <li>You may cancel your subscription at any time through your Apple ID settings</li>
+                <li>Cancellation takes effect at the end of the current billing period</li>
+            </ul>
+
+            <h2>9. Privacy</h2>
+            <p>Your privacy is important to us. Please review our <a href="privacy.html">Privacy Policy</a> to understand how we collect, use, and protect your information.</p>
+
+            <h2>10. Termination</h2>
+            <p>We reserve the right to:</p>
+            <ul>
+                <li>Suspend or terminate your access to the service at any time</li>
+                <li>Modify or discontinue the service with or without notice</li>
+                <li>Remove any content that violates these Terms</li>
+            </ul>
+
+            <h2>11. Changes to Terms</h2>
+            <p>We may update these Terms of Service from time to time. We will notify you of significant changes by:</p>
+            <ul>
+                <li>Updating the "Last Updated" date</li>
+                <li>Providing notice within the app</li>
+                <li>Requiring acceptance of new terms before continued use</li>
+            </ul>
+
+            <h2>12. Theological Disclaimer</h2>
+            <div class="highlight-box">
+                <p>Bible Key presents scripture and AI-assisted reflections from a perspective grounded in the teachings of Jesus and the New Testament. We recognize that:</p>
+                <ul style="margin-top: 12px; margin-bottom: 0;">
+                    <li>There are many valid paths to Christ</li>
+                    <li>Interpretations may vary among denominations and traditions</li>
+                    <li>AI responses may not align with your personal theological beliefs</li>
+                    <li>Grace and respect are essential in our diverse faith community</li>
+                </ul>
+                <p style="margin-top: 12px; margin-bottom: 0;">If the theological approach of this app does not resonate with your path to Christ, we completely understand and respect your decision to seek other resources.</p>
+            </div>
+
+            <h2>13. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the United States and the State of California, without regard to conflict of law provisions.</p>
+
+            <h2>14. Contact Information</h2>
+            <p>If you have questions about these Terms of Service, please contact us at:</p>
+            <ul>
+                <li>Email: <a href="mailto:thoughts@biblekey.app">thoughts@biblekey.app</a></li>
+                <li>App Support: Available through the "You" tab in the app</li>
+            </ul>
+
+            <h2>15. Severability</h2>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+            <h2>16. Entire Agreement</h2>
+            <p>These Terms of Service, together with our Privacy Policy and Statement of Faith, constitute the entire agreement between you and Bible Key regarding the use of the service.</p>
+
+            <div class="divider"></div>
+
+            <p style="text-align: center; font-style: italic; color: var(--text-secondary);">By using Bible Key, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span>Bible Key</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="developer.html">From the Developer</a>
+                <a href="mailto:thoughts@biblekey.app">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Bible Key. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
