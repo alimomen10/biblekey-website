@@ -134,7 +134,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -163,7 +163,7 @@
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(48px, 6vw, 72px);
+            font-size: clamp(42px, 5vw, 64px);
             font-weight: 600;
             line-height: 1.1;
             margin-bottom: 24px;
@@ -229,115 +229,100 @@
             color: var(--gold-accent);
         }
 
-        .hero-image {
+        /* Phone Carousel */
+        .hero-carousel {
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
-        .phone-mockup {
+        .carousel-container {
             position: relative;
-            width: 300px;
+            width: 100%;
+            max-width: 380px;
         }
 
         .phone-frame {
-            width: 100%;
             background: #1a1a1a;
             border-radius: 48px;
-            padding: 12px;
+            padding: 10px;
             box-shadow:
-                0 50px 100px rgba(0, 0, 0, 0.15),
-                0 20px 60px rgba(0, 0, 0, 0.1);
+                0 50px 100px rgba(0, 0, 0, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .phone-screen {
             background: var(--cream);
             border-radius: 40px;
             overflow: hidden;
-            aspect-ratio: 9/19.5;
+            position: relative;
+        }
+
+        .carousel-slides {
             display: flex;
-            flex-direction: column;
+            transition: transform 0.5s ease-in-out;
         }
 
-        .phone-notch {
-            width: 120px;
-            height: 28px;
-            background: #1a1a1a;
-            border-radius: 0 0 20px 20px;
-            margin: 0 auto;
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
         }
 
-        .phone-content {
-            flex: 1;
-            padding: 20px;
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 40px;
+        }
+
+        /* Carousel Controls */
+        .carousel-dots {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
         }
 
-        .phone-header {
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--gold-accent);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: var(--gold-dark);
+        }
+
+        /* Carousel Feature Labels */
+        .carousel-label {
             text-align: center;
-            padding: 16px 0;
+            margin-top: 20px;
         }
 
-        .phone-header h3 {
+        .carousel-label h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .phone-header p {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .phone-verse-card {
-            background: white;
-            border-radius: var(--border-radius-md);
-            padding: 20px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        .phone-verse-card p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            font-style: italic;
-            line-height: 1.6;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .phone-verse-card span {
-            font-size: 12px;
-            color: var(--gold-accent);
-            font-weight: 500;
-        }
-
-        .phone-tabs {
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            margin-top: auto;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .phone-tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: var(--text-tertiary);
-            font-size: 10px;
-        }
-
-        .phone-tab.active {
-            color: var(--gold-accent);
-        }
-
-        .phone-tab svg {
-            width: 20px;
-            height: 20px;
+        .carousel-label p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 300px;
+            margin: 0 auto;
         }
 
         /* Features Section */
@@ -423,234 +408,6 @@
             color: var(--text-secondary);
             font-size: 15px;
             line-height: 1.7;
-        }
-
-        /* Scripture Section */
-        .scripture-section {
-            padding: 120px 24px;
-            background: var(--cream);
-        }
-
-        .scripture-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .scripture-preview {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-xl);
-            padding: 48px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-        }
-
-        .scripture-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 32px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .scripture-book {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .scripture-nav {
-            display: flex;
-            gap: 8px;
-        }
-
-        .scripture-nav button {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--text-tertiary);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .scripture-nav button:hover {
-            border-color: var(--gold-accent);
-            color: var(--gold-accent);
-        }
-
-        .scripture-verses {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            line-height: 2;
-        }
-
-        .verse-number {
-            font-size: 12px;
-            color: var(--gold-accent);
-            vertical-align: super;
-            margin-right: 4px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
-
-        .verse-highlight {
-            background: #FFF3C4;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-
-        .scripture-info h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 5vw, 48px);
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .scripture-info p {
-            color: var(--text-secondary);
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-
-        .feature-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-primary);
-        }
-
-        .feature-list li svg {
-            width: 20px;
-            height: 20px;
-            color: var(--gold-accent);
-            flex-shrink: 0;
-        }
-
-        /* Reflect Section */
-        .reflect-section {
-            padding: 120px 24px;
-            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-        }
-
-        .reflect-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .reflect-info {
-            order: 1;
-        }
-
-        .reflect-preview {
-            order: 2;
-        }
-
-        .chat-preview {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-xl);
-            padding: 32px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-        }
-
-        .chat-header {
-            text-align: center;
-            padding-bottom: 24px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            margin-bottom: 24px;
-        }
-
-        .chat-header h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .chat-header p {
-            font-size: 13px;
-            color: var(--text-tertiary);
-        }
-
-        .chat-messages {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .chat-message {
-            max-width: 85%;
-            padding: 16px 20px;
-            border-radius: var(--border-radius-lg);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .chat-message.user {
-            background: var(--gold-accent);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .chat-message.ai {
-            background: var(--cream);
-            color: var(--text-primary);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .chat-input {
-            margin-top: 24px;
-            display: flex;
-            gap: 12px;
-            padding: 12px;
-            background: var(--cream);
-            border-radius: var(--border-radius-md);
-        }
-
-        .chat-input input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            font-size: 14px;
-            color: var(--text-primary);
-            outline: none;
-        }
-
-        .chat-input input::placeholder {
-            color: var(--text-tertiary);
-        }
-
-        .chat-input button {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: var(--gold-accent);
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         /* CTA Section */
@@ -771,9 +528,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content,
-            .scripture-content,
-            .reflect-content {
+            .hero-content {
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
@@ -781,6 +536,11 @@
             .hero-text {
                 text-align: center;
                 max-width: 100%;
+                order: 1;
+            }
+
+            .hero-carousel {
+                order: 2;
             }
 
             .hero-buttons {
@@ -789,23 +549,6 @@
 
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .scripture-info,
-            .reflect-info {
-                text-align: center;
-            }
-
-            .feature-list {
-                align-items: center;
-            }
-
-            .reflect-info {
-                order: 1;
-            }
-
-            .reflect-preview {
-                order: 2;
             }
         }
 
@@ -827,16 +570,21 @@
                 grid-template-columns: 1fr;
             }
 
-            .phone-mockup {
-                width: 260px;
+            .carousel-container {
+                max-width: 280px;
             }
 
-            .scripture-preview {
-                padding: 32px 24px;
+            .phone-frame {
+                border-radius: 40px;
+                padding: 8px;
             }
 
-            .chat-preview {
-                padding: 24px;
+            .phone-screen {
+                border-radius: 34px;
+            }
+
+            .carousel-slide img {
+                border-radius: 34px;
             }
 
             .footer-content {
@@ -869,6 +617,10 @@
             .btn-cta {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .carousel-container {
+                max-width: 260px;
             }
         }
     </style>
@@ -915,58 +667,35 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="phone-mockup">
+            <div class="hero-carousel">
+                <div class="carousel-container">
                     <div class="phone-frame">
                         <div class="phone-screen">
-                            <div class="phone-notch"></div>
-                            <div class="phone-content">
-                                <div class="phone-header">
-                                    <h3>Bible Key</h3>
-                                    <p>Unlock the Word</p>
+                            <div class="carousel-slides" id="carouselSlides">
+                                <div class="carousel-slide">
+                                    <img src="screenshots/scripture.png" alt="Scripture reading with highlights, bookmarks, and audio">
                                 </div>
-                                <div class="phone-verse-card">
-                                    <p>"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
-                                    <span>Jeremiah 29:11</span>
+                                <div class="carousel-slide">
+                                    <img src="screenshots/insights.png" alt="Chapter insights with summary and historical context">
                                 </div>
-                                <div class="phone-tabs">
-                                    <div class="phone-tab active">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <line x1="12" y1="8" x2="12" y2="12"/>
-                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
-                                        </svg>
-                                        Today
-                                    </div>
-                                    <div class="phone-tab">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                                        </svg>
-                                        Read
-                                    </div>
-                                    <div class="phone-tab">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="11" cy="11" r="8"/>
-                                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                                        </svg>
-                                        Search
-                                    </div>
-                                    <div class="phone-tab">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-                                        </svg>
-                                        Saved
-                                    </div>
-                                    <div class="phone-tab">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                                        </svg>
-                                        Reflect
-                                    </div>
+                                <div class="carousel-slide">
+                                    <img src="screenshots/reflect.png" alt="AI-powered reflection and questions">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="screenshots/deeper.png" alt="Go deeper on any verse with AI insights">
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <button class="carousel-dot active" data-slide="0"></button>
+                        <button class="carousel-dot" data-slide="1"></button>
+                        <button class="carousel-dot" data-slide="2"></button>
+                        <button class="carousel-dot" data-slide="3"></button>
+                    </div>
+                    <div class="carousel-label">
+                        <h3 id="carouselTitle">Read & Study</h3>
+                        <p id="carouselDescription">Highlight verses, take notes, bookmark favorites, and listen to audio narration.</p>
                     </div>
                 </div>
             </div>
@@ -1046,125 +775,6 @@
         </div>
     </section>
 
-    <!-- Scripture Reading Section -->
-    <section class="scripture-section">
-        <div class="scripture-content">
-            <div class="scripture-preview">
-                <div class="scripture-header">
-                    <span class="scripture-book">John 1</span>
-                    <div class="scripture-nav">
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6"/>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="scripture-verses">
-                    <p><span class="verse-number">1</span>In the beginning was the Word, and the Word was with God, and the Word was God. <span class="verse-number">2</span>He was with God in the beginning. <span class="verse-number">3</span>Through Him all things were made, and without Him nothing was made that has been made. <span class="verse-number">4</span><span class="verse-highlight">In Him was life, and that life was the light of men.</span> <span class="verse-number">5</span>The Light shines in the darkness, and the darkness has not overcome it.</p>
-                </div>
-            </div>
-            <div class="scripture-info">
-                <span class="section-label">Beautiful Reading</span>
-                <h2>Scripture that's a joy to read</h2>
-                <p>Experience the Bible in a clean, elegant interface designed for deep reading. Tap any verse for instant context and insights, or long-press words to explore their meaning.</p>
-                <ul class="feature-list">
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Complete Berean Standard Bible
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Tap verses for AI-powered insights
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Swipe to navigate chapters
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Customizable text size and appearance
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reflect Section -->
-    <section class="reflect-section">
-        <div class="reflect-content">
-            <div class="reflect-info">
-                <span class="section-label">AI Reflection</span>
-                <h2>Ask questions. Find answers.</h2>
-                <p>Bible Key's AI companion helps you explore Scripture and navigate life's challenges with wisdom rooted in faith. Ask anything—from understanding difficult passages to seeking guidance for daily struggles.</p>
-                <ul class="feature-list">
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Thoughtful, faith-based responses
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Explore Scripture meaning and context
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Get guidance for life's challenges
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Powered by Claude AI
-                    </li>
-                </ul>
-            </div>
-            <div class="reflect-preview">
-                <div class="chat-preview">
-                    <div class="chat-header">
-                        <h4>Reflect</h4>
-                        <p>Ask anything about faith & life</p>
-                    </div>
-                    <div class="chat-messages">
-                        <div class="chat-message user">
-                            How do I forgive someone who hurt me deeply?
-                        </div>
-                        <div class="chat-message ai">
-                            Forgiveness is one of the most challenging yet transformative gifts we can give ourselves and others. Jesus spoke directly to this in Matthew 18:21-22...
-                        </div>
-                    </div>
-                    <div class="chat-input">
-                        <input type="text" placeholder="Ask a question..." disabled>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"/>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section" id="download">
         <div class="cta-content">
@@ -1201,5 +811,71 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Carousel functionality
+        const slides = document.getElementById('carouselSlides');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const title = document.getElementById('carouselTitle');
+        const description = document.getElementById('carouselDescription');
+
+        const slideData = [
+            {
+                title: "Read & Study",
+                description: "Highlight verses, take notes, bookmark favorites, and listen to audio narration."
+            },
+            {
+                title: "Chapter Insights",
+                description: "Get AI-powered summaries and historical context for every chapter."
+            },
+            {
+                title: "Reflect & Ask",
+                description: "Ask questions about faith and life. Get thoughtful, scripture-based guidance."
+            },
+            {
+                title: "Go Deeper",
+                description: "Tap any verse for deeper insights, meaning, and personal application."
+            }
+        ];
+
+        let currentSlide = 0;
+        let autoplayInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            title.textContent = slideData[index].title;
+            description.textContent = slideData[index].description;
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % slideData.length);
+        }
+
+        // Click handlers for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetAutoplay();
+            });
+        });
+
+        // Autoplay
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            startAutoplay();
+        }
+
+        startAutoplay();
+    </script>
 </body>
 </html>
