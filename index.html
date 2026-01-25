@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Key - Unlock the Word</title>
-    <meta name="description" content="Bible Key - Your personal companion for scripture reading, reflection, and spiritual growth. Available on the App Store.">
+    <title>BibleKey - Unlock the Word</title>
+    <meta name="description" content="BibleKey - Your personal companion for scripture reading, reflection, and spiritual growth. Available on the App Store.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -481,6 +481,45 @@
             opacity: 0.6;
         }
 
+        /* Notify Form */
+        .notify-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .form-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--border-radius-md);
+            font-size: 16px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
         /* Footer */
         footer {
             padding: 60px 24px;
@@ -634,6 +673,14 @@
             .carousel-container {
                 max-width: 260px;
             }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .form-input {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -647,9 +694,9 @@
                         <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
                     </svg>
                 </div>
-                <span class="logo-text">Bible Key</span>
+                <span class="logo-text">BibleKey</span>
             </a>
-            <a href="#download" class="nav-cta">Download App</a>
+            <a href="#notify" class="nav-cta">Coming Soon</a>
         </div>
     </nav>
 
@@ -665,20 +712,21 @@
                 </div>
                 <h1>Your personal guide to <span>Scripture</span></h1>
                 <p class="hero-description">
-                    Deepen your faith journey with Bible Key. Read, reflect, and grow with AI-powered insights, professional audio narration, and personal study tools—all in one beautiful app.
+                    Deepen your faith journey with BibleKey. Read, reflect, and grow with AI-powered insights, professional audio narration, and personal study tools—all in one beautiful app.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    <a href="#notify" class="btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
                         </svg>
-                        Download on App Store
+                        Get Notified
                     </a>
                     <a href="#features" class="btn-secondary">
                         Learn More
                     </a>
                 </div>
-                <p class="device-availability">Available on iPhone & iPad</p>
+                <p class="device-availability">Coming Soon to iPhone & iPad</p>
             </div>
             <div class="hero-carousel">
                 <div class="carousel-container">
@@ -687,6 +735,9 @@
                             <div class="carousel-slides" id="carouselSlides">
                                 <div class="carousel-slide">
                                     <img src="screenshots/scripture.png" alt="Scripture reading with highlights, bookmarks, and audio">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="screenshots/today.png" alt="Today's Light - Daily verse with AI-powered insights">
                                 </div>
                                 <div class="carousel-slide">
                                     <img src="screenshots/insights.png" alt="Chapter insights with summary and historical context">
@@ -705,6 +756,7 @@
                         <button class="carousel-dot" data-slide="1"></button>
                         <button class="carousel-dot" data-slide="2"></button>
                         <button class="carousel-dot" data-slide="3"></button>
+                        <button class="carousel-dot" data-slide="4"></button>
                     </div>
                     <div class="carousel-label">
                         <h3 id="carouselTitle">Read & Study</h3>
@@ -720,7 +772,7 @@
         <div class="section-header">
             <span class="section-label">Features</span>
             <h2>Everything you need for your faith journey</h2>
-            <p>Bible Key combines powerful study tools with a beautiful, distraction-free reading experience.</p>
+            <p>BibleKey combines powerful study tools with a beautiful, distraction-free reading experience.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -788,20 +840,30 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="download">
+    <!-- Notify Section -->
+    <section class="cta-section" id="notify">
         <div class="cta-content">
-            <h2>Begin your journey today</h2>
-            <p>Download Bible Key and discover a new way to engage with Scripture. Your faith journey starts here.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn-cta">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            <h2>Be the first to know</h2>
+            <p>BibleKey is coming soon. Sign up to be notified when we launch and start your faith journey.</p>
+            <form class="notify-form" id="notifyForm" action="https://formsubmit.co/thoughts@biblekey.app" method="POST">
+                <input type="hidden" name="_subject" value="BibleKey Launch Notification Signup">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://biblekey.app/index.html?subscribed=true#notify">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your Name" required class="form-input">
+                    <input type="email" name="email" placeholder="Your Email" required class="form-input">
+                </div>
+                <button type="submit" class="btn-cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
                     </svg>
-                    Download on the App Store
-                </a>
-            </div>
-            <p class="cta-device-availability">Available on iPhone & iPad</p>
+                    Notify Me
+                </button>
+            </form>
+            <p class="cta-device-availability">Coming Soon to iPhone & iPad</p>
+            <p class="success-message" id="successMessage" style="display: none; color: var(--gold-light); margin-top: 16px;">Thank you! We'll notify you when BibleKey launches.</p>
         </div>
     </section>
 
@@ -812,7 +874,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
                 </svg>
-                <span>Bible Key</span>
+                <span>BibleKey</span>
             </div>
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
@@ -821,7 +883,7 @@
                 <a href="mailto:thoughts@biblekey.app">Contact</a>
             </div>
             <div class="footer-copyright">
-                &copy; 2026 Bible Key. All rights reserved.
+                &copy; 2026 BibleKey. All rights reserved.
             </div>
         </div>
     </footer>
@@ -837,6 +899,10 @@
             {
                 title: "Read & Study",
                 description: "Highlight verses, take notes, bookmark favorites, and listen to audio narration."
+            },
+            {
+                title: "Today's Light",
+                description: "Start each day with a verse and AI-powered insight to guide your reflection."
             },
             {
                 title: "Chapter Insights",
@@ -890,6 +956,18 @@
         }
 
         startAutoplay();
+
+        // Check for successful form submission
+        if (window.location.search.includes('subscribed=true')) {
+            const form = document.getElementById('notifyForm');
+            const successMessage = document.getElementById('successMessage');
+            if (form && successMessage) {
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            }
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname + '#notify');
+        }
     </script>
 </body>
 </html>
