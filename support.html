@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - BibleKey</title>
+    <meta name="description" content="Get help with BibleKey or share your feedback. We're here to support your Bible study journey.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF5EE">
+
+    <style>
+        :root {
+            --gold-accent: #C29A54;
+            --gold-light: #EDDEBB;
+            --gold-dark: #A88542;
+            --cream: #FAF5EE;
+            --warm-white: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --text-primary: #332E2A;
+            --text-secondary: #736B66;
+            --text-tertiary: #9E9590;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 245, 238, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: var(--gold-accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header .subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-xl);
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .intro-box {
+            background: var(--gold-light);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .intro-box p {
+            font-size: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .intro-box p strong {
+            color: var(--gold-dark);
+        }
+
+        /* Form Styles */
+        .support-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .form-group label .required {
+            color: var(--gold-accent);
+        }
+
+        .form-group label .optional {
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            padding: 14px 16px;
+            border: 1px solid rgba(194, 154, 84, 0.2);
+            border-radius: var(--border-radius-md);
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--text-primary);
+            background: var(--warm-white);
+            transition: all 0.2s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 3px rgba(194, 154, 84, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* File Upload */
+        .file-upload-wrapper {
+            position: relative;
+        }
+
+        .file-upload-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 32px 24px;
+            border: 2px dashed rgba(194, 154, 84, 0.3);
+            border-radius: var(--border-radius-md);
+            background: var(--warm-white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--gold-accent);
+            background: rgba(237, 222, 187, 0.2);
+        }
+
+        .file-upload-label svg {
+            width: 40px;
+            height: 40px;
+            color: var(--gold-accent);
+        }
+
+        .file-upload-label span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .file-upload-label .browse-link {
+            color: var(--gold-accent);
+            font-weight: 500;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--gold-dark);
+            display: none;
+        }
+
+        .file-name.active {
+            display: block;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background: var(--text-primary);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(51, 46, 42, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(194, 154, 84, 0.2);
+            text-align: center;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 24px;
+            background: var(--cream);
+            border-top: 1px solid rgba(194, 154, 84, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo svg {
+            width: 28px;
+            height: 28px;
+            transform: rotate(-45deg);
+            color: var(--gold-accent);
+        }
+
+        .footer-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-message svg {
+            width: 64px;
+            height: 64px;
+            color: var(--gold-accent);
+            margin-bottom: 24px;
+        }
+
+        .success-message h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .success-message p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .page-content {
+                padding: 100px 16px 60px;
+            }
+
+            .content-card {
+                padding: 32px 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                </div>
+                <span class="logo-text">BibleKey</span>
+            </a>
+            <a href="index.html#notify" class="nav-cta">Coming Soon</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <h1>Support & Feedback</h1>
+            <p class="subtitle">We're here to help with any questions or hear your thoughts about BibleKey.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="intro-box">
+                <p>Whether you're experiencing an issue, have a feature suggestion, or just want to share your thoughts, we'd love to hear from you. <strong>Your feedback helps us improve BibleKey for everyone.</strong></p>
+            </div>
+
+            <form class="support-form" id="supportForm" action="https://formsubmit.co/thoughts@biblekey.app" method="POST" enctype="multipart/form-data">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="BibleKey Support Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://biblekey.app/support.html?success=true">
+
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="screenshot">Screenshot <span class="optional">(optional)</span></label>
+                    <div class="file-upload-wrapper">
+                        <label class="file-upload-label" for="screenshot">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span>Drag and drop an image here, or <span class="browse-link">browse</span></span>
+                        </label>
+                        <input type="file" id="screenshot" name="attachment" accept="image/*">
+                    </div>
+                    <p class="file-name" id="fileName"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="Describe the issue you're experiencing or share your feedback..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <!-- Success Message (shown after form submission) -->
+            <div class="success-message" id="successMessage">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <h2>Message Sent!</h2>
+                <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+            </div>
+
+            <div class="contact-info">
+                <p>You can also reach us directly at:</p>
+                <a href="mailto:thoughts@biblekey.app">thoughts@biblekey.app</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span>BibleKey</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="developer.html">From the Developer</a>
+                <a href="support.html">Support</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 BibleKey. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Display selected file name
+        document.getElementById('screenshot').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            const fileNameEl = document.getElementById('fileName');
+            if (fileName) {
+                fileNameEl.textContent = 'Selected: ' + fileName;
+                fileNameEl.classList.add('active');
+            } else {
+                fileNameEl.classList.remove('active');
+            }
+        });
+
+        // Check for success parameter in URL
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('supportForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('active');
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
+</body>
+</html>

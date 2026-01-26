@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BibleKey - App Store Screenshot Generator</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --gold-accent: #C29A54;
+            --gold-light: #EDDEBB;
+            --gold-dark: #A88542;
+            --cream: #FAF5EE;
+            --warm-white: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --text-primary: #332E2A;
+            --text-secondary: #736B66;
+            --text-tertiary: #9E9590;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(250, 245, 238, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(194, 154, 84, 0.1);
+            padding: 16px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--gold-accent);
+            transform: rotate(-45deg);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .header-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: calc(100vh - 73px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--card-bg);
+            border-right: 1px solid rgba(194, 154, 84, 0.1);
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .slide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slide-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--cream);
+            border: 1px solid transparent;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .slide-btn:hover {
+            background: var(--gold-light);
+        }
+
+        .slide-btn.active {
+            background: var(--gold-light);
+            border-color: var(--gold-accent);
+        }
+
+        .slide-btn .slide-number {
+            width: 28px;
+            height: 28px;
+            background: var(--gold-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .slide-btn .slide-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .slide-btn .slide-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .slide-btn .slide-status {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+
+        .slide-btn .slide-status.has-image {
+            color: var(--gold-accent);
+        }
+
+        /* Export Section */
+        .export-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(194, 154, 84, 0.15);
+        }
+
+        .export-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: var(--border-radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(51, 46, 42, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--text-tertiary);
+            margin-top: 12px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+        }
+
+        /* Canvas Area */
+        .canvas-area {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .canvas-controls {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .size-selector {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .size-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            border-radius: var(--border-radius-sm);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .size-btn.active {
+            background: var(--gold-accent);
+            color: white;
+        }
+
+        /* Screenshot Canvas */
+        .screenshot-canvas {
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+            border-radius: var(--border-radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* iPhone 6.5" - 1284 x 2778 (App Store requirement) */
+        /* Preview at 1/3 scale: 428 x 926 */
+        .screenshot-canvas.iphone-67 {
+            width: 428px;
+            height: 926px;
+        }
+
+        /* iPad Pro 12.9" - 2048 x 2732 (App Store requirement) */
+        /* Preview at 1/4 scale: 512 x 683 */
+        .screenshot-canvas.ipad-129 {
+            width: 512px;
+            height: 683px;
+        }
+
+        /* Headline Styling */
+        .screenshot-headline {
+            text-align: center;
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+
+        .screenshot-headline h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .screenshot-headline p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        /* Phone Frame */
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 8px;
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.2),
+                0 15px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .phone-screen {
+            background: var(--cream);
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-frame.iphone-67 .phone-screen {
+            width: 260px;
+            height: 563px;
+        }
+
+        .phone-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .phone-placeholder:hover {
+            background: var(--gold-light);
+            color: var(--gold-dark);
+        }
+
+        .phone-placeholder svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .phone-placeholder span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .phone-placeholder .hint {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .phone-screen img,
+        .ipad-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .devices-stack .ipad-screen img {
+            object-fit: contain;
+            background: var(--cream);
+        }
+
+        /* iPad Frame */
+        .ipad-frame {
+            background: #1a1a1a;
+            border-radius: 24px;
+            padding: 12px;
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.2),
+                0 15px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .ipad-screen {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ipad-frame .ipad-screen {
+            width: 255px;
+            height: 340px;
+        }
+
+        /* Large iPad for standalone iPad screenshots (portrait) */
+        .ipad-frame.ipad-large {
+            border-radius: 28px;
+            padding: 14px;
+        }
+
+        .ipad-large-screen {
+            width: 315px;
+            height: 420px;
+            border-radius: 18px;
+        }
+
+        /* Sync Slide - Devices Stack (iPad in back, iPhone in bottom-right corner) */
+        .devices-stack {
+            position: relative;
+            width: 380px;
+            height: 620px;
+        }
+
+        .devices-stack .ipad-frame {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            padding: 4px;
+            border-radius: 14px;
+        }
+
+        .devices-stack .ipad-frame .ipad-screen {
+            width: 340px;
+            height: 453px;
+            border-radius: 10px;
+        }
+
+        .devices-stack .phone-frame {
+            position: absolute;
+            bottom: 0;
+            right: -10px;
+            z-index: 2;
+            padding: 4px;
+            border-radius: 24px;
+        }
+
+        .devices-stack .phone-frame .phone-screen {
+            width: 160px;
+            height: 347px;
+            border-radius: 20px;
+        }
+
+        /* Hero Slide Special */
+        .screenshot-headline.hero-slide h1 {
+            font-size: 48px;
+        }
+
+        .screenshot-headline.hero-slide .tagline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .screenshot-headline.hero-slide .tagline-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--gold-accent);
+        }
+
+        .screenshot-headline.hero-slide .tagline-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        .screenshot-headline.hero-slide h1 .gold-text {
+            color: var(--gold-accent);
+        }
+
+        .screenshot-headline.hero-slide p .highlight-text {
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        /* Hidden file inputs */
+        .hidden-input {
+            display: none;
+        }
+
+        /* Upload Zone Active */
+        .upload-active {
+            outline: 3px dashed var(--gold-accent);
+            outline-offset: -3px;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text-primary);
+            color: white;
+            padding: 14px 24px;
+            border-radius: var(--border-radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Zoom controls */
+        .zoom-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            padding: 8px 16px;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .zoom-control label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .zoom-control select {
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Preview Scale */
+        .preview-wrapper {
+            transform-origin: center center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Loading state */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Clear image button */
+        .clear-image-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: rgba(0,0,0,0.6);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+        }
+
+        .phone-screen:hover .clear-image-btn,
+        .ipad-screen:hover .clear-image-btn {
+            opacity: 1;
+        }
+
+        .clear-image-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Info text */
+        .info-text {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                </svg>
+                <span class="logo-text">BibleKey</span>
+            </div>
+            <span class="header-title">App Store Screenshot Generator</span>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h2>Screenshots</h2>
+            <div class="slide-list" id="slideList">
+                <!-- Generated by JS -->
+            </div>
+
+            <div class="export-section">
+                <h3>Export</h3>
+                <button class="btn btn-primary" onclick="exportCurrentSlide()">
+                    Export Current (PNG)
+                </button>
+                <button class="btn btn-secondary" onclick="exportAllSlides()">
+                    Export All Screenshots
+                </button>
+            </div>
+
+            <p class="info-text">
+                Click on the device screens to upload your screenshots.
+                Export at 1x scale for web, or actual size for App Store.
+            </p>
+        </aside>
+
+        <main class="canvas-area">
+            <div class="canvas-controls">
+                <div class="size-selector">
+                    <button class="size-btn active" data-device="iphone-67" onclick="setDevice('iphone-67')">iPhone 6.7"</button>
+                    <button class="size-btn" data-device="ipad-129" onclick="setDevice('ipad-129')">iPad 12.9"</button>
+                </div>
+                <div class="zoom-control">
+                    <label>Preview:</label>
+                    <select id="zoomLevel" onchange="setZoom(this.value)">
+                        <option value="0.5">50%</option>
+                        <option value="0.75">75%</option>
+                        <option value="1" selected>100%</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="preview-wrapper" id="previewWrapper">
+                <div class="screenshot-canvas iphone-67" id="screenshotCanvas">
+                    <!-- Content injected by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden file inputs -->
+    <input type="file" id="phoneImageInput" class="hidden-input" accept="image/*">
+    <input type="file" id="ipadImageInput" class="hidden-input" accept="image/*">
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Slide data configuration
+        const slides = [
+            {
+                id: 'hero',
+                title: 'Your Personal Guide',
+                headline: 'Your personal guide to Scripture',
+                subheadline: 'Unlock the Word with deeper meaning in every verse.',
+                type: 'hero',
+                phoneImage: null
+            },
+            {
+                id: 'read-study',
+                title: 'Read & Study',
+                headline: 'Read & Study',
+                subheadline: 'Highlight verses, take notes, bookmark favorites, and listen to audio narration.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'todays-light',
+                title: "Today's Light",
+                headline: "Today's Light",
+                subheadline: 'Start each day with a verse and a thoughtful insight to guide your reflection.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'chapter-insights',
+                title: 'Chapter Insights',
+                headline: 'Chapter Insights',
+                subheadline: 'Get meaningful summaries and historical context for every chapter.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'reflect-ask',
+                title: 'Reflect & Ask',
+                headline: 'Reflect & Ask',
+                subheadline: 'Ask questions about faith and life. Get thoughtful, scripture-based guidance.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'go-deeper',
+                title: 'Go Deeper',
+                headline: 'Go Deeper',
+                subheadline: 'Tap any verse for deeper insights, meaning, and personal application.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'sync',
+                title: 'Sync Everywhere',
+                headline: 'Sync Everywhere',
+                subheadline: 'Your highlights, notes, and progress sync seamlessly across all your devices.',
+                type: 'sync',
+                phoneImage: null,
+                ipadImage: null
+            }
+        ];
+
+        let currentSlideIndex = 0;
+        let currentDevice = 'iphone-67';
+        let currentZoom = 1;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSlideList();
+            renderCurrentSlide();
+            setupFileInputs();
+        });
+
+        function renderSlideList() {
+            const list = document.getElementById('slideList');
+            list.innerHTML = slides.map((slide, index) => `
+                <button class="slide-btn ${index === currentSlideIndex ? 'active' : ''}" onclick="selectSlide(${index})">
+                    <span class="slide-number">${index + 1}</span>
+                    <div class="slide-info">
+                        <div class="slide-title">${slide.title}</div>
+                        <div class="slide-status ${slide.phoneImage ? 'has-image' : ''}" id="status-${index}">
+                            ${getStatusText(slide)}
+                        </div>
+                    </div>
+                </button>
+            `).join('');
+        }
+
+        function getStatusText(slide) {
+            if (slide.type === 'sync') {
+                const hasPhone = slide.phoneImage;
+                const hasIpad = slide.ipadImage;
+                if (hasPhone && hasIpad) return 'Both images added';
+                if (hasPhone || hasIpad) return 'Partial - needs images';
+                return 'Click to add images';
+            }
+            return slide.phoneImage ? 'Image added' : 'Click to add image';
+        }
+
+        function selectSlide(index) {
+            currentSlideIndex = index;
+            renderSlideList();
+            renderCurrentSlide();
+        }
+
+        function renderCurrentSlide() {
+            const slide = slides[currentSlideIndex];
+            const canvas = document.getElementById('screenshotCanvas');
+
+            // Set canvas class based on device (but sync always uses its own layout)
+            canvas.className = `screenshot-canvas ${currentDevice}`;
+            if (slide.type === 'sync') {
+                canvas.className = 'screenshot-canvas iphone-67'; // Sync slide uses fixed sizing
+            }
+
+            let content = '';
+
+            if (slide.type === 'hero' && currentDevice === 'ipad-129') {
+                // Hero slide - iPad version
+                const formattedHeadline = slide.headline.replace('Scripture', '<span class="gold-text">Scripture</span>');
+                const formattedSubheadline = slide.subheadline.replace('Unlock the Word', '<span class="highlight-text">Unlock the Word</span>');
+                content = `
+                    <div class="screenshot-headline hero-slide">
+                        <div class="tagline">
+                            <svg class="tagline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <g transform="rotate(-45, 12, 12)">
+                                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                </g>
+                            </svg>
+                            <span class="tagline-text">BibleKey</span>
+                        </div>
+                        <h1>${formattedHeadline}</h1>
+                        <p>${formattedSubheadline}</p>
+                    </div>
+                    <div class="ipad-frame ipad-large">
+                        <div class="ipad-screen ipad-large-screen" onclick="triggerPhoneUpload()">
+                            ${slide.phoneImage
+                                ? `<img src="${slide.phoneImage}" alt="Screenshot"><button class="clear-image-btn" onclick="clearImage('phone', event)">&times;</button>`
+                                : `<div class="phone-placeholder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                    <span>Upload iPad Screenshot</span>
+                                    <span class="hint">Click or drag image</span>
+                                </div>`
+                            }
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'hero') {
+                // Hero slide - iPhone version
+                const formattedHeadline = slide.headline.replace('Scripture', '<span class="gold-text">Scripture</span>');
+                const formattedSubheadline = slide.subheadline.replace('Unlock the Word', '<span class="highlight-text">Unlock the Word</span>');
+                content = `
+                    <div class="screenshot-headline hero-slide">
+                        <div class="tagline">
+                            <svg class="tagline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <g transform="rotate(-45, 12, 12)">
+                                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                </g>
+                            </svg>
+                            <span class="tagline-text">BibleKey</span>
+                        </div>
+                        <h1>${formattedHeadline}</h1>
+                        <p>${formattedSubheadline}</p>
+                    </div>
+                    <div class="phone-frame iphone-67">
+                        <div class="phone-screen" onclick="triggerPhoneUpload()">
+                            ${slide.phoneImage
+                                ? `<img src="${slide.phoneImage}" alt="Screenshot"><button class="clear-image-btn" onclick="clearImage('phone', event)">&times;</button>`
+                                : `<div class="phone-placeholder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                    <span>Upload Screenshot</span>
+                                    <span class="hint">Click or drag image</span>
+                                </div>`
+                            }
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'sync') {
+                content = `
+                    <div class="screenshot-headline">
+                        <h1>${slide.headline}</h1>
+                        <p>${slide.subheadline}</p>
+                    </div>
+                    <div class="devices-stack">
+                        <div class="ipad-frame">
+                            <div class="ipad-screen" onclick="triggerIpadUpload()">
+                                ${slide.ipadImage
+                                    ? `<img src="${slide.ipadImage}" alt="iPad Screenshot"><button class="clear-image-btn" onclick="clearImage('ipad', event)">&times;</button>`
+                                    : `<div class="phone-placeholder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                        </svg>
+                                        <span>Upload iPad Screenshot</span>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                        <div class="phone-frame">
+                            <div class="phone-screen" onclick="triggerPhoneUpload()">
+                                ${slide.phoneImage
+                                    ? `<img src="${slide.phoneImage}" alt="iPhone Screenshot"><button class="clear-image-btn" onclick="clearImage('phone', event)">&times;</button>`
+                                    : `<div class="phone-placeholder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                        </svg>
+                                        <span>Upload iPhone</span>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (currentDevice === 'ipad-129') {
+                // iPad slide
+                content = `
+                    <div class="screenshot-headline">
+                        <h1>${slide.headline}</h1>
+                        <p>${slide.subheadline}</p>
+                    </div>
+                    <div class="ipad-frame ipad-large">
+                        <div class="ipad-screen ipad-large-screen" onclick="triggerPhoneUpload()">
+                            ${slide.phoneImage
+                                ? `<img src="${slide.phoneImage}" alt="Screenshot"><button class="clear-image-btn" onclick="clearImage('phone', event)">&times;</button>`
+                                : `<div class="phone-placeholder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                    <span>Upload iPad Screenshot</span>
+                                    <span class="hint">Click or drag image</span>
+                                </div>`
+                            }
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Standard iPhone slide
+                content = `
+                    <div class="screenshot-headline">
+                        <h1>${slide.headline}</h1>
+                        <p>${slide.subheadline}</p>
+                    </div>
+                    <div class="phone-frame iphone-67">
+                        <div class="phone-screen" onclick="triggerPhoneUpload()">
+                            ${slide.phoneImage
+                                ? `<img src="${slide.phoneImage}" alt="Screenshot"><button class="clear-image-btn" onclick="clearImage('phone', event)">&times;</button>`
+                                : `<div class="phone-placeholder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                    <span>Upload Screenshot</span>
+                                    <span class="hint">Click or drag image</span>
+                                </div>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }
+
+            canvas.innerHTML = content;
+        }
+
+        function setupFileInputs() {
+            const phoneInput = document.getElementById('phoneImageInput');
+            const ipadInput = document.getElementById('ipadImageInput');
+
+            phoneInput.addEventListener('change', (e) => {
+                handleImageUpload(e.target.files[0], 'phone');
+                e.target.value = ''; // Reset for re-upload
+            });
+
+            ipadInput.addEventListener('change', (e) => {
+                handleImageUpload(e.target.files[0], 'ipad');
+                e.target.value = '';
+            });
+
+            // Drag and drop on canvas
+            const canvas = document.getElementById('screenshotCanvas');
+            canvas.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                canvas.classList.add('upload-active');
+            });
+            canvas.addEventListener('dragleave', () => {
+                canvas.classList.remove('upload-active');
+            });
+            canvas.addEventListener('drop', (e) => {
+                e.preventDefault();
+                canvas.classList.remove('upload-active');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    handleImageUpload(file, 'phone');
+                }
+            });
+        }
+
+        function triggerPhoneUpload() {
+            document.getElementById('phoneImageInput').click();
+        }
+
+        function triggerIpadUpload() {
+            document.getElementById('ipadImageInput').click();
+        }
+
+        function handleImageUpload(file, type) {
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (type === 'phone') {
+                    slides[currentSlideIndex].phoneImage = e.target.result;
+                } else {
+                    slides[currentSlideIndex].ipadImage = e.target.result;
+                }
+                renderSlideList();
+                renderCurrentSlide();
+                showToast('Image uploaded successfully');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearImage(type, event) {
+            event.stopPropagation();
+            if (type === 'phone') {
+                slides[currentSlideIndex].phoneImage = null;
+            } else {
+                slides[currentSlideIndex].ipadImage = null;
+            }
+            renderSlideList();
+            renderCurrentSlide();
+            showToast('Image removed');
+        }
+
+        function setDevice(device) {
+            currentDevice = device;
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.device === device);
+            });
+            renderCurrentSlide();
+        }
+
+        function setZoom(zoom) {
+            currentZoom = parseFloat(zoom);
+            document.getElementById('previewWrapper').style.transform = `scale(${currentZoom})`;
+        }
+
+        async function exportCurrentSlide() {
+            const canvas = document.getElementById('screenshotCanvas');
+            const slide = slides[currentSlideIndex];
+
+            showToast('Generating PNG...');
+
+            // App Store exact dimensions
+            const dimensions = {
+                'iphone-67': { width: 1284, height: 2778, scale: 3 },  // iPhone 6.5"
+                'ipad-129': { width: 2048, height: 2732, scale: 4 }    // iPad 12.9"
+            };
+
+            const targetDim = dimensions[currentDevice];
+
+            try {
+                const exportCanvas = await html2canvas(canvas, {
+                    scale: targetDim.scale,
+                    useCORS: true,
+                    backgroundColor: null,
+                    logging: false
+                });
+
+                // Resize to exact App Store dimensions
+                const finalCanvas = document.createElement('canvas');
+                finalCanvas.width = targetDim.width;
+                finalCanvas.height = targetDim.height;
+                const ctx = finalCanvas.getContext('2d');
+                ctx.drawImage(exportCanvas, 0, 0, targetDim.width, targetDim.height);
+
+                const link = document.createElement('a');
+                link.download = `BibleKey-${slide.id}-${currentDevice}.png`;
+                link.href = finalCanvas.toDataURL('image/png');
+                link.click();
+
+                showToast(`Exported: ${slide.title} (${targetDim.width}x${targetDim.height})`);
+            } catch (err) {
+                console.error(err);
+                showToast('Export failed. Try again.');
+            }
+        }
+
+        async function exportAllSlides() {
+            showToast('Exporting all screenshots...');
+
+            for (let i = 0; i < slides.length; i++) {
+                currentSlideIndex = i;
+                renderSlideList();
+                renderCurrentSlide();
+
+                // Wait for render
+                await new Promise(r => setTimeout(r, 300));
+
+                await exportCurrentSlide();
+
+                // Small delay between exports
+                await new Promise(r => setTimeout(r, 500));
+            }
+
+            showToast('All screenshots exported!');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+</html>
