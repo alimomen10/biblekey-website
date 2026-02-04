@@ -269,7 +269,7 @@
 
         /* Screenshot Canvas */
         .screenshot-canvas {
-            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+            background: linear-gradient(180deg, #EDE5D8 0%, #DDD4C4 100%);
             border-radius: var(--border-radius-xl);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -424,14 +424,19 @@
 
         /* Large iPad for standalone iPad screenshots (portrait) */
         .ipad-frame.ipad-large {
-            border-radius: 28px;
-            padding: 14px;
+            border-radius: 16px;
+            padding: 4px;
         }
 
         .ipad-large-screen {
-            width: 315px;
-            height: 420px;
-            border-radius: 18px;
+            width: 380px;
+            height: 507px;
+            border-radius: 12px;
+        }
+
+        .ipad-large-screen img {
+            object-fit: contain;
+            background: var(--cream);
         }
 
         /* Sync Slide - Devices Stack (iPad in back, iPhone in bottom-right corner) */
@@ -471,6 +476,22 @@
             border-radius: 20px;
         }
 
+        /* Sync slide scaled for iPad canvas */
+        .screenshot-canvas.ipad-129 .devices-stack {
+            width: 320px;
+            height: 420px;
+        }
+
+        .screenshot-canvas.ipad-129 .devices-stack .ipad-frame .ipad-screen {
+            width: 240px;
+            height: 320px;
+        }
+
+        .screenshot-canvas.ipad-129 .devices-stack .phone-frame .phone-screen {
+            width: 120px;
+            height: 260px;
+        }
+
         /* Hero Slide Special */
         .screenshot-headline.hero-slide h1 {
             font-size: 48px;
@@ -505,6 +526,255 @@
         .screenshot-headline.hero-slide p .highlight-text {
             color: var(--gold-dark);
             font-weight: 600;
+        }
+
+        /* Premium Slide */
+        .premium-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .premium-slide .premium-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-accent) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(194, 154, 84, 0.3);
+        }
+
+        .premium-slide .premium-icon svg {
+            width: 44px;
+            height: 44px;
+            color: white;
+        }
+
+        .premium-slide h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .premium-slide .premium-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            letter-spacing: 0.01em;
+        }
+
+        .premium-slide .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .premium-slide .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 14px 18px;
+            border-radius: 14px;
+        }
+
+        .premium-slide .feature-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gold-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .premium-slide .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--gold-dark);
+        }
+
+        .premium-slide .feature-text {
+            flex: 1;
+        }
+
+        .premium-slide .feature-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            letter-spacing: 0.01em;
+        }
+
+        .premium-slide .feature-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+        }
+
+        .premium-slide .trial-info {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .premium-slide .trial-info .trial-headline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 6px;
+            letter-spacing: 0.01em;
+        }
+
+        .premium-slide .trial-info .trial-detail {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+        }
+
+        /* iPad Premium adjustments */
+        .screenshot-canvas.ipad-129 .premium-slide .premium-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .premium-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide h1 {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .premium-subtitle {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .features-list {
+            max-width: 400px;
+            gap: 10px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .feature-item {
+            padding: 10px 14px;
+            border-radius: 10px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .feature-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .feature-title {
+            font-size: 14px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .feature-desc {
+            font-size: 11px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .trial-info {
+            margin-top: 18px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .trial-info .trial-headline {
+            font-size: 17px;
+        }
+
+        .screenshot-canvas.ipad-129 .premium-slide .trial-info .trial-detail {
+            font-size: 12px;
+        }
+
+        /* Cascading Phones Stack (Today's Light) */
+        .phones-cascade {
+            position: relative;
+            width: 340px;
+            height: 520px;
+        }
+
+        .phones-cascade .phone-frame {
+            position: absolute;
+            padding: 3px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .phones-cascade .phone-frame .phone-screen {
+            width: 130px;
+            height: 282px;
+            border-radius: 16px;
+        }
+
+        .phones-cascade .phone-1 {
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .phones-cascade .phone-2 {
+            bottom: 40px;
+            left: 90px;
+            z-index: 2;
+        }
+
+        .phones-cascade .phone-3 {
+            bottom: 80px;
+            right: 0;
+            z-index: 3;
+        }
+
+        /* iPad version of cascading phones */
+        .screenshot-canvas.ipad-129 .phones-cascade {
+            width: 420px;
+            height: 420px;
+        }
+
+        .screenshot-canvas.ipad-129 .phones-cascade .phone-frame .phone-screen {
+            width: 130px;
+            height: 282px;
+        }
+
+        .screenshot-canvas.ipad-129 .phones-cascade .phone-1 {
+            bottom: 0;
+            left: 0;
+        }
+
+        .screenshot-canvas.ipad-129 .phones-cascade .phone-2 {
+            bottom: 40px;
+            left: 110px;
+        }
+
+        .screenshot-canvas.ipad-129 .phones-cascade .phone-3 {
+            bottom: 80px;
+            right: 20px;
         }
 
         /* Hidden file inputs */
@@ -688,69 +958,95 @@
     <!-- Hidden file inputs -->
     <input type="file" id="phoneImageInput" class="hidden-input" accept="image/*">
     <input type="file" id="ipadImageInput" class="hidden-input" accept="image/*">
+    <input type="file" id="cascadeImageInput" class="hidden-input" accept="image/*">
 
     <!-- Toast notification -->
     <div class="toast" id="toast"></div>
 
     <script>
         // Slide data configuration
+        // MARKETING PRIORITY: Lead with AI differentiators that set BibleKey apart
         const slides = [
             {
                 id: 'hero',
-                title: 'Your Personal Guide',
-                headline: 'Your personal guide to Scripture',
-                subheadline: 'Unlock the Word with deeper meaning in every verse.',
+                title: 'Go Beyond Reading',
+                headline: 'Go beyond reading Scripture',
+                subheadline: 'Discover the meaning of every verse, word, and connection.',
                 type: 'hero',
                 phoneImage: null
             },
             {
-                id: 'read-study',
-                title: 'Read & Study',
-                headline: 'Read & Study',
-                subheadline: 'Highlight verses, take notes, bookmark favorites, and listen to audio narration.',
+                id: 'go-deeper',
+                title: 'Go Deeper',
+                headline: 'Understand any verse instantly',
+                subheadline: 'Tap any verse to reveal its meaning, context, and how it applies to your life.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'cross-reference-trail',
+                title: 'Cross Reference Trail',
+                headline: 'See how Scripture connects',
+                subheadline: 'Follow the trail between passages and discover why they\'re linked.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'explore-word',
+                title: 'Explore Word',
+                headline: 'Discover the original meaning',
+                subheadline: 'Tap any word to see its Hebrew or Greek origin, etymology, and biblical usage.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'chapter-insights',
+                title: 'Chapter Summary',
+                headline: 'Context for every chapter',
+                subheadline: 'Get summaries, historical background, key themes, and practical application.',
+                type: 'standard',
+                phoneImage: null
+            },
+            {
+                id: 'reflect-chat',
+                title: 'Reflect Chat',
+                headline: 'Your personal faith companion',
+                subheadline: 'Ask questions about faith and life. Get thoughtful, scripture-grounded guidance.',
                 type: 'standard',
                 phoneImage: null
             },
             {
                 id: 'todays-light',
                 title: "Today's Light",
-                headline: "Today's Light",
-                subheadline: 'Start each day with a verse and a thoughtful insight to guide your reflection.',
+                headline: "Start your day with meaning",
+                subheadline: 'Daily verse with reflection, personal application, and prayer.',
                 type: 'standard',
                 phoneImage: null
             },
             {
-                id: 'chapter-insights',
-                title: 'Chapter Insights',
-                headline: 'Chapter Insights',
-                subheadline: 'Get meaningful summaries and historical context for every chapter.',
-                type: 'standard',
-                phoneImage: null
-            },
-            {
-                id: 'reflect-ask',
-                title: 'Reflect & Ask',
-                headline: 'Reflect & Ask',
-                subheadline: 'Ask questions about faith and life. Get thoughtful, scripture-based guidance.',
-                type: 'standard',
-                phoneImage: null
-            },
-            {
-                id: 'go-deeper',
-                title: 'Go Deeper',
-                headline: 'Go Deeper',
-                subheadline: 'Tap any verse for deeper insights, meaning, and personal application.',
+                id: 'read-study',
+                title: 'Read & Study',
+                headline: 'Beautiful reading experience',
+                subheadline: 'Highlight, bookmark, take notes, and listen to audio narration.',
                 type: 'standard',
                 phoneImage: null
             },
             {
                 id: 'sync',
                 title: 'Sync Everywhere',
-                headline: 'Sync Everywhere',
-                subheadline: 'Your highlights, notes, and progress sync seamlessly across all your devices.',
+                headline: 'Sync across all devices',
+                subheadline: 'Your highlights, notes, and progress sync seamlessly via iCloud.',
                 type: 'sync',
                 phoneImage: null,
                 ipadImage: null
+            },
+            {
+                id: 'premium',
+                title: 'BibleKey Premium',
+                headline: 'BibleKey Premium',
+                subheadline: 'Unlock the full experience with a 7-day free trial.',
+                type: 'premium',
+                phoneImage: null
             }
         ];
 
@@ -788,6 +1084,15 @@
                 if (hasPhone || hasIpad) return 'Partial - needs images';
                 return 'Click to add images';
             }
+            if (slide.type === 'cascade') {
+                const count = [slide.phoneImage1, slide.phoneImage2, slide.phoneImage3].filter(Boolean).length;
+                if (count === 3) return 'All 3 images added';
+                if (count > 0) return `${count}/3 images added`;
+                return 'Click to add images';
+            }
+            if (slide.type === 'premium') {
+                return 'No image needed';
+            }
             return slide.phoneImage ? 'Image added' : 'Click to add image';
         }
 
@@ -801,11 +1106,8 @@
             const slide = slides[currentSlideIndex];
             const canvas = document.getElementById('screenshotCanvas');
 
-            // Set canvas class based on device (but sync always uses its own layout)
+            // Set canvas class based on device
             canvas.className = `screenshot-canvas ${currentDevice}`;
-            if (slide.type === 'sync') {
-                canvas.className = 'screenshot-canvas iphone-67'; // Sync slide uses fixed sizing
-            }
 
             let content = '';
 
@@ -908,6 +1210,144 @@
                         </div>
                     </div>
                 `;
+            } else if (slide.type === 'cascade') {
+                // Cascading phones slide (Today's Light)
+                content = `
+                    <div class="screenshot-headline">
+                        <h1>${slide.headline}</h1>
+                        <p>${slide.subheadline}</p>
+                    </div>
+                    <div class="phones-cascade">
+                        <div class="phone-frame phone-1">
+                            <div class="phone-screen" onclick="triggerCascadeUpload(1)">
+                                ${slide.phoneImage1
+                                    ? `<img src="${slide.phoneImage1}" alt="Screenshot 1"><button class="clear-image-btn" onclick="clearCascadeImage(1, event)">&times;</button>`
+                                    : `<div class="phone-placeholder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                        </svg>
+                                        <span>Verse</span>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                        <div class="phone-frame phone-2">
+                            <div class="phone-screen" onclick="triggerCascadeUpload(2)">
+                                ${slide.phoneImage2
+                                    ? `<img src="${slide.phoneImage2}" alt="Screenshot 2"><button class="clear-image-btn" onclick="clearCascadeImage(2, event)">&times;</button>`
+                                    : `<div class="phone-placeholder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                        </svg>
+                                        <span>Reflection</span>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                        <div class="phone-frame phone-3">
+                            <div class="phone-screen" onclick="triggerCascadeUpload(3)">
+                                ${slide.phoneImage3
+                                    ? `<img src="${slide.phoneImage3}" alt="Screenshot 3"><button class="clear-image-btn" onclick="clearCascadeImage(3, event)">&times;</button>`
+                                    : `<div class="phone-placeholder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/>
+                                        </svg>
+                                        <span>Prayer</span>
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'premium') {
+                // Premium slide - no device mockup needed
+                content = `
+                    <div class="premium-slide">
+                        <div class="premium-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <g transform="rotate(-45, 12, 12)">
+                                    <path d="M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <h1>BibleKey Premium</h1>
+                        <p class="premium-subtitle">Unlocks the full experience</p>
+
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Go Deeper</div>
+                                    <div class="feature-desc">Instant insight on any verse</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Cross Reference Trail</div>
+                                    <div class="feature-desc">See how passages connect</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Explore Word</div>
+                                    <div class="feature-desc">Hebrew & Greek origins</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Reflect Chat</div>
+                                    <div class="feature-desc">Talk through faith and life</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Today's Light</div>
+                                    <div class="feature-desc">Daily verse with reflection & prayer</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-title">Scripture Audio</div>
+                                    <div class="feature-desc">Listen to natural readings</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trial-info">
+                            <div class="trial-headline">7-Day Free Trial Included</div>
+                            <div class="trial-detail">Try all features free, cancel anytime</div>
+                        </div>
+                    </div>
+                `;
             } else if (currentDevice === 'ipad-129') {
                 // iPad slide
                 content = `
@@ -960,6 +1400,7 @@
         function setupFileInputs() {
             const phoneInput = document.getElementById('phoneImageInput');
             const ipadInput = document.getElementById('ipadImageInput');
+            const cascadeInput = document.getElementById('cascadeImageInput');
 
             phoneInput.addEventListener('change', (e) => {
                 handleImageUpload(e.target.files[0], 'phone');
@@ -968,6 +1409,11 @@
 
             ipadInput.addEventListener('change', (e) => {
                 handleImageUpload(e.target.files[0], 'ipad');
+                e.target.value = '';
+            });
+
+            cascadeInput.addEventListener('change', (e) => {
+                handleImageUpload(e.target.files[0], 'cascade');
                 e.target.value = '';
             });
 
@@ -998,6 +1444,13 @@
             document.getElementById('ipadImageInput').click();
         }
 
+        let cascadeUploadTarget = null;
+
+        function triggerCascadeUpload(num) {
+            cascadeUploadTarget = num;
+            document.getElementById('cascadeImageInput').click();
+        }
+
         function handleImageUpload(file, type) {
             if (!file) return;
 
@@ -1005,8 +1458,11 @@
             reader.onload = (e) => {
                 if (type === 'phone') {
                     slides[currentSlideIndex].phoneImage = e.target.result;
-                } else {
+                } else if (type === 'ipad') {
                     slides[currentSlideIndex].ipadImage = e.target.result;
+                } else if (type === 'cascade') {
+                    slides[currentSlideIndex][`phoneImage${cascadeUploadTarget}`] = e.target.result;
+                    cascadeUploadTarget = null;
                 }
                 renderSlideList();
                 renderCurrentSlide();
@@ -1022,6 +1478,14 @@
             } else {
                 slides[currentSlideIndex].ipadImage = null;
             }
+            renderSlideList();
+            renderCurrentSlide();
+            showToast('Image removed');
+        }
+
+        function clearCascadeImage(num, event) {
+            event.stopPropagation();
+            slides[currentSlideIndex][`phoneImage${num}`] = null;
             renderSlideList();
             renderCurrentSlide();
             showToast('Image removed');
@@ -1046,6 +1510,9 @@
 
             showToast('Generating PNG...');
 
+            // Wait for fonts to be fully loaded
+            await document.fonts.ready;
+
             // App Store exact dimensions
             const dimensions = {
                 'iphone-67': { width: 1284, height: 2778, scale: 3 },  // iPhone 6.5"
@@ -1059,7 +1526,16 @@
                     scale: targetDim.scale,
                     useCORS: true,
                     backgroundColor: null,
-                    logging: false
+                    logging: false,
+                    onclone: (clonedDoc) => {
+                        // Fix font rendering in cloned document
+                        const clonedCanvas = clonedDoc.getElementById('screenshotCanvas');
+                        clonedCanvas.style.letterSpacing = 'normal';
+                        // Apply letter-spacing fix to all text elements
+                        clonedCanvas.querySelectorAll('*').forEach(el => {
+                            el.style.letterSpacing = 'normal';
+                        });
+                    }
                 });
 
                 // Resize to exact App Store dimensions
