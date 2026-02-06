@@ -3,5 +3,11 @@
   "compatibility_date": "2026-01-23",
   "assets": {
     "directory": "./"
-  }
+  },
+  "kv_namespaces": [
+    {
+      "binding": "PROMO",
+      "id": "7b7e16a3ed554b5e99e6f465472825d8"
+    }
+  ]
 }
